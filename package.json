@@ -1,0 +1,11 @@
+{
+    "name": "Peron dice",
+    "version": 0.1,
+    "main": "src/index.html",
+    "window": {
+        "toolbar": false,
+	"frame": false,
+	"width": 300,
+	"height": 400
+    }
+}

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>El General Per&oacute;n dice:</title>
+<script type="text/javascript">
+
+var fs = require('fs');
+
+function random (low, high) {
+    return Math.floor(Math.random() * (high - low) + low);
+}
+
+function decir_frase() {
+	var frases_peron = "./res/frases.txt";
+
+	fs.readFile(frases_peron, {encoding: 'utf-8'}, function(error, contenido) {
+		if(error) {
+			throw(error)
+		}
+
+		var frases_lista = contenido.split(",");
+		var numero = random(0, frases_lista.length);
+
+		var frase = frases_lista[numero].replace(/\n/g, '');
+	
+		document.getElementById("frase").innerHTML = frase;
+	});
+}
+
+</script>
+
+</head>
+<body onload="decir_frase()">
+
+	<h2>El General Per&oacute;n dice:</h2>
+
+	<img width=200 height=200 src="../res/imgs/general_peron.png" onclick="decir_frase()">
+	<p id="frase">
+
+	</p>
+
+
+</body>
+</html>
+
